@@ -30,9 +30,16 @@ function initMap() {
                     for (var i = 0; i < results.length; i++) {
                         createMarker(results[i]);
                         //console.log(results[i])
-
                     }
                 }
+
+                const buscador = document.querySelector('#buscar input');
+                buscador.addEventListener('input', () => {
+                    if (buscador.value.length > 3) {
+                        const filtro = results.filter(filtro => filtro.rating.indexOf('3.9') !== -1)
+                        console.log(filtro)
+                    }
+                })
             }
         },
     )
@@ -44,7 +51,7 @@ function createMarker(place) {
         name: place.name,
         position: place.geometry.location,
         address: place.vicinity,
-        photo: place.icon
+        photos: place.icon
     });
 
     let contenido =
@@ -56,3 +63,5 @@ function createMarker(place) {
         infowindow.open(map, this);
     });
 }
+
+//Buscador
