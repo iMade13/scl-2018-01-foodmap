@@ -1,9 +1,24 @@
-function initMap() {
-    // The location of Uluru
-    var uluru = { lat: -1.000, lng: 100.200 };
-    // The map, centered at Uluru
-    var map = new google.maps.Map(
-        document.getElementById('map'), { zoom: 4, center: uluru });
-    // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({ position: uluru, map: map });
-}
+//Mostrar restaurants de la API
+// document.addEventListener('cargarContenido', () => {
+//     function showRestaurants() {
+//         obtenerDatos()
+//             .then(datos => {
+//                 console.log(datos);
+//             })
+//     }
+// })
+
+// const buscador = document.querySelector('#buscar input');
+
+// buscador.addEventListener('input', () => {
+//     // Si es mayor a 5, buscar sugerencias
+//     if (buscador.value.length > 3) {
+//         // Obtener sugerencias que sean parte de la busqueda
+//         ui.obtenerSugerencias(buscador.value);
+//     } else if (buscador.value.length === 0) {
+//         // Reiniciar el mapa
+//         initMap();
+//         // Mostrar los pines
+//         showRestaurants();
+//     }
+// });
