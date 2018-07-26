@@ -1,9 +1,10 @@
-window.onload = function() {
+window.onload = () => {
     initMap();
 }
 
 let map;
-let infoWindow;
+let infowindow;
+
 
 function initMap() {
     navigator.geolocation.getCurrentPosition(
@@ -14,12 +15,41 @@ function initMap() {
             }
             map = new google.maps.Map(document.getElementById('map'), {
                 center: pos,
-                zoom: 6
+                zoom: 15
             });
+            infowindow = new google.maps.InfoWindow();
+            let service = new google.maps.places.PlacesService(map)
+            service.nearbySearch({
+                location: pos,
+                radius: 2000,
+                type: ['restaurant']
+            }, callback);
 
-            infoWindow = new google.maps.InfoWindow;
+            function callback(results, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < results.length; i++) {
+                        createMarker(results[i]);
+                        //console.log(results[i])
 
-
-        }
+                    }
+                }
+            }
+        },
     )
+}
+
+function createMarker(place) {
+    let marker = new google.maps.Marker({
+        map: map,
+        name: place.name,
+        position: place.geometry.location,
+        address: place.vicinity,
+        //photo: place.photos[0].getUrl({ 'maxWidth': 100, 'maxHeight': 100 })
+    });
+
+
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+    });
 }
