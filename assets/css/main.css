@@ -1,0 +1,19 @@
+#splash {
+    background-image: url('../img/background.jpg');
+    background-color: rgb(36, 39, 48);
+    background-size: contain;
+    background-repeat: space;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.container-title {
+    height: 100vh;
+}
+
+#title {
+    color: rgb(198, 137, 30);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 4em;
+    text-align: center;
+}
