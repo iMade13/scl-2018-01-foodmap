@@ -44,12 +44,15 @@ function createMarker(place) {
         name: place.name,
         position: place.geometry.location,
         address: place.vicinity,
-        //photo: place.photos[0].getUrl({ 'maxWidth': 100, 'maxHeight': 100 })
+        photo: place.icon
     });
 
+    let contenido =
+        `Nombre: ${place.name}</br>
+        Direccion: ${place.vicinity}`;
 
     google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name);
+        infowindow.setContent(contenido);
         infowindow.open(map, this);
     });
 }
