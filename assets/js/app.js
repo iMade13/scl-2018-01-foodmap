@@ -22,7 +22,7 @@ function initMap() {
             service.nearbySearch({
                 location: pos,
                 radius: 1500,
-                type: ['restaurant']
+                type: ['restaurant', 'food']
             }, callback);
 
             function callback(results, status) {
@@ -68,12 +68,4 @@ function createMarker(place) {
             $("#info-modal").modal('show');
         }
     })(marker));
-}
-
-function showPlace(place) {
-    /*  */
-    const photo = place.photos[0].getUrl({ 'maxWidth': 200, 'maxHeight': 200 });
-
-    const contPhotos = document.getElementById('showPhotos');
-    contPhotos.innerHTML += `<img src='${photo}'></img>`
 }
