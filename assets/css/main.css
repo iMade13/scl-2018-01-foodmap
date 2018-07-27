@@ -44,3 +44,7 @@ h4 {
     height: 250px;
     background: gray;
 }
+
+#namePlace {
+    color: rgb(36, 39, 48);
+}

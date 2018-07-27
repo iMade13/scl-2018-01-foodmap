@@ -21,7 +21,7 @@ function initMap() {
             let service = new google.maps.places.PlacesService(map)
             service.nearbySearch({
                 location: pos,
-                radius: 2000,
+                radius: 1500,
                 type: ['restaurant']
             }, callback);
 
@@ -29,17 +29,14 @@ function initMap() {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                     for (var i = 0; i < results.length; i++) {
                         createMarker(results[i]);
-                        //console.log(results[i])
+                        console.log(results[i])
                     }
                 }
-
-                const buscador = document.querySelector('#buscar input');
-                buscador.addEventListener('input', () => {
-                    if (buscador.value.length > 3) {
-                        const filtro = results.filter(filtro => filtro.rating.indexOf('3.9') !== -1)
-                        console.log(filtro)
-                    }
-                })
+                // const buscador = document.querySelector('#buscar input');
+                // buscador.addEventListener('input', () => {
+                //     const filtro = results.filter(filtro => filtro.rating.indexOf(buscador) !== -1)
+                //     console.log(filtro)
+                // })
             }
         },
     )
@@ -62,6 +59,21 @@ function createMarker(place) {
         infowindow.setContent(contenido);
         infowindow.open(map, this);
     });
+
+    google.maps.event.addListener(marker, 'click', (function() {
+        return function() {
+            $("#namePlace").text(`Local: ${place.name}`);
+            $("#addressPlace").text(`Dirección: ${place.vicinity}`);
+            $("#photoId").text(`Fotos: ${place.photos}`);
+            $("#info-modal").modal('show');
+        }
+    })(marker));
 }
 
-//Buscador
+function showPlace(place) {
+    /*  */
+    const photo = place.photos[0].getUrl({ 'maxWidth': 200, 'maxHeight': 200 });
+
+    const containerInfo = document.getElementById('showPhotos');
+    containerInfo.innerHTML += `<img src='${photo}'></img>`
+}
