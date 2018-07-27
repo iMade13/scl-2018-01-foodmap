@@ -74,6 +74,6 @@ function showPlace(place) {
     /*  */
     const photo = place.photos[0].getUrl({ 'maxWidth': 200, 'maxHeight': 200 });
 
-    const containerInfo = document.getElementById('showPhotos');
-    containerInfo.innerHTML += `<img src='${photo}'></img>`
+    const contPhotos = document.getElementById('showPhotos');
+    contPhotos.innerHTML += `<img src='${photo}'></img>`
 }
