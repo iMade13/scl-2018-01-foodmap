@@ -1,0 +1,30 @@
+{
+  "name": "scl-2018-01-foodmap",
+  "version": "1.0.0",
+  "description": "Foodmap 2.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iMade13/scl-2018-01-foodmap.git"
+  },
+  "keywords": [
+    "test",
+    "development"
+  ],
+  "author": "MadeleineM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iMade13/scl-2018-01-foodmap/issues"
+  },
+  "homepage": "https://github.com/iMade13/scl-2018-01-foodmap#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
