@@ -1,6 +1,16 @@
 html {
-    height: 100%;
+    height: auto;
 }
+
+body,
+h1 {
+    font-family: "Oswald", sans-serif !important
+}
+
+
+/* footer {
+    position: fixed;
+} */
 
 #splash {
     background-image: url('../img/background.jpg');
@@ -12,7 +22,7 @@ html {
 }
 
 .container-title {
-    height: 100vh;
+    height: auto;
 }
 
 .title {
@@ -51,4 +61,9 @@ h4 {
 
 #namePlace {
     color: rgb(36, 39, 48);
+}
+
+#showPhotos {
+    margin-left: 20px;
+    padding-bottom: 20px;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel="stylesheet" href="src/css/main.css">
     <title>Food Map</title>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq2oQSM3QjVfvO1FyKE5MG4Y2TYoQUzcg&libraries=places" type="text/javascript"></script>
@@ -14,26 +15,24 @@
 <body id="index">
     <header class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col">
                 <div class="contenedor d-flex justify-content-center">
                     <h1 class="title mt-3">FoodMap</h1>
                 </div>
             </div>
         </div>
     </header>
-    <main class="container">
+    <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col">
                 <div class="contenedor d-flex justify-content-center" id="map">
                     <!-- <img src="assets/img/maps.gif" width="100%" height="50%" alt=""> -->
                 </div>
                 <div class="contenedor-filter">
-                    <div class="col-12" id="title-h4">
+                    <div class="col" id="title-h4">
                         <h4>Comida cerca de ti</h4>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <form action="#" class="select-filter" id="restaurant-filter">
+                    <!-- <form action="#" class="select-filter" id="restaurant-filter">
                                 <select class="custom-select option-filter" id="filter">
                                     <option value=''>-- Filtro por Tipo de Comida--</option>
                                     <option value="">Japonesa</option>
@@ -42,12 +41,10 @@
                                     <option value="">Venezolana</option>
                                     <option value="">Otro</option>
                                   </select>
-                            </form>
-                            <!-- <form id="buscar" class=" my-2 my-lg-0">
-                                    <input class="form-control" type="text" placeholder="Filtrar">
-                                </form> -->
-                        </div>
-                    </div>
+                            </form> -->
+                    <form class=" my-2 my-lg-0">
+                        <input class="form-control" type="text" placeholder="Filtrar" id="buscar">
+                    </form>
                 </div>
                 <div class="modal fade" id="info-modal" tabindex="-1" role="dialog" aria-labelledby="info-modal" aria-hidden="true">
                     <div class="modal-dialog">
@@ -57,8 +54,8 @@
                                 <span aria-hidden="true">&times;</span>
                             </div>
                             <div class="modal-body" id="modal-body">
-                                <!-- <img src="" alt="" id="photoId"> -->
                                 <p id="addressPlace"></p>
+                                <p id="photoId"></p>
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-warning" type="button">Pedir ahora</button>
@@ -69,17 +66,12 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div>
+        <div class="contenedor d-flex align-items-center justify-content-center" id="showPhotos">
+
         </div>
-    </main>
-    <footer>
-        <div class="row">
-            <div class="col-12">
-                <div class="contenedor d-flex align-items-center justify-content-center" id="showPhotos">
-                    <img src="assets/img/background.jpg" class="mt-4" width="300px" alt="">
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

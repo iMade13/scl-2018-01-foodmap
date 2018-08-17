@@ -4,6 +4,8 @@ window.onload = () => {
 
 let map;
 let infowindow;
+let service;
+
 
 
 function initMap() {
@@ -18,11 +20,11 @@ function initMap() {
                 zoom: 15
             });
             infowindow = new google.maps.InfoWindow();
-            let service = new google.maps.places.PlacesService(map)
+            service = new google.maps.places.PlacesService(map)
             service.nearbySearch({
                 location: pos,
                 radius: 1500,
-                type: ['restaurant', 'food']
+                type: ['restaurant'],
             }, callback);
 
             function callback(results, status) {
@@ -31,12 +33,14 @@ function initMap() {
                         createMarker(results[i]);
                         console.log(results[i])
                     }
+                    // let rest = results.type[0]
+                    // let buscador = document.getElementById("buscar").value
+                    // document.addEventListener('onkeyup', () => {
+                    //     const filtro = rest.filter(filtro => filtro.type.indexOf(buscador) !== -1)
+                    //     console.log(filtro)
+                    // })
                 }
-                // const buscador = document.querySelector('#buscar input');
-                // buscador.addEventListener('input', () => {
-                //     const filtro = results.filter(filtro => filtro.rating.indexOf(buscador) !== -1)
-                //     console.log(filtro)
-                // })
+
             }
         },
     )
@@ -48,12 +52,12 @@ function createMarker(place) {
         name: place.name,
         position: place.geometry.location,
         address: place.vicinity,
-        photos: place.icon
     });
 
     let contenido =
         `Nombre: ${place.name}</br>
         Direccion: ${place.vicinity}`;
+
 
     google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent(contenido);
@@ -62,10 +66,13 @@ function createMarker(place) {
 
     google.maps.event.addListener(marker, 'click', (function() {
         return function() {
-            $("#namePlace").text(`Local: ${place.name}`);
-            $("#addressPlace").text(`Dirección: ${place.vicinity}`);
-            $("#photoId").text(`Fotos: ${place.photos}`);
-            $("#info-modal").modal('show');
+            namePlace.innerHTML = (`Local: ${place.name}`);
+            addressPlace.innerHTML = (`Dirección: ${place.vicinity}`);
+            photoId.innerHTML = (`Rating: ${place.rating}`);
+            $("#info-modal").modal('show')
+            let photo = place.photos[0].getUrl({ "maxWidth": 150 });
+            showPhotos.innerHTML = `<img src="${photo}" alt="" height="150">`
+
         }
     })(marker));
 }
