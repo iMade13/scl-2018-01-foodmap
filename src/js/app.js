@@ -6,8 +6,6 @@ let map;
 let infowindow;
 let service;
 
-
-
 function initMap() {
     navigator.geolocation.getCurrentPosition(
         function(position) {
@@ -53,11 +51,9 @@ function createMarker(place) {
         position: place.geometry.location,
         address: place.vicinity,
     });
-
     let contenido =
         `Nombre: ${place.name}</br>
-        Direccion: ${place.vicinity}`;
-
+    Direccion: ${place.vicinity}`;
 
     google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent(contenido);
